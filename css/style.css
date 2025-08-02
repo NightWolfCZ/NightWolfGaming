@@ -80,10 +80,6 @@ body {
   transition: text-shadow 0.3s ease;
 }
 
-.runa {
-  animation: pulseGlow 3s infinite ease-in-out;
-}
-
 .popisek {
   margin-top: 0.3rem;
   font-size: 1rem;
