@@ -5,6 +5,21 @@
   padding: 0;
 }
 
+@keyframes pulseGlow {
+  0%, 100% {
+    text-shadow:
+      0 0 5px rgba(255, 244, 214, 0.8),
+      0 0 15px rgba(255, 244, 214, 0.6),
+      0 0 20px rgba(128, 0, 0, 0.7);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(255, 244, 214, 1),
+      0 0 25px rgba(255, 244, 214, 0.9),
+      0 0 30px rgba(128, 0, 0, 0.9);
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
