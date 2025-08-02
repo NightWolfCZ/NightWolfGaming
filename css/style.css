@@ -99,14 +99,23 @@ body::before {
   transition: transform 0.3s ease;
 }
 
-.runa-blok:hover {
-  transform: scale(1.15);
+.runa-blok:hover .runa {
+  text-shadow:
+    0 0 8px rgba(255, 244, 214, 1),
+    0 0 20px rgba(255, 244, 214, 0.9),
+    0 0 25px rgba(128, 0, 0, 0.9);
+  cursor: pointer;
 }
 
 .runa {
-  font-size: 2.8rem;
-  color: #a8ffe3;
-  text-shadow: 0 0 6px rgba(168,255,227,0.6);
+  font-family: 'Segoe UI Symbol', 'Arial Unicode MS', serif; /* aby runy dobře vypadaly */
+  font-size: 1.8rem;
+  color: #fff8dc; /* taková bílobéžová, co připomíná měsíční světlo */
+  text-shadow:
+    0 0 5px rgba(255, 244, 214, 0.8),   /* měkký zlatobílý svit */
+    0 0 15px rgba(255, 244, 214, 0.6),  /* větší rozostřený svit */
+    0 0 20px rgba(128, 0, 0, 0.7);      /* lehce bordó zabarvený svit jako od tebe */
+  transition: text-shadow 0.3s ease;
 }
 
 .popisek {
