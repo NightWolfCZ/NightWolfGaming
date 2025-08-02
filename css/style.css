@@ -338,14 +338,6 @@ body::after {
   }
 }
 
-/* === RESET & ZÁKLADNÍ STYLY === */
-/* ... základní věci, barvy, fonty, layout ... */
-
-
-/* === RUNY A TEXTY === */
-/* ... styly pro .runa, nadpisy, menu, atd. ... */
-
-
 /* === VIZUÁLNÍ EFEKTY: MĚSÍC + MLHA === */
 body::before {
   content: "";
