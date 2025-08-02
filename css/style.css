@@ -20,6 +20,28 @@
   }
 }
 
+/* Animace pohybu mlhy */
+@keyframes mistMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(30px, 20px);
+  }
+}
+
+/* Animace pulzujícího měsíčního svitu */
+@keyframes moonGlowPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
