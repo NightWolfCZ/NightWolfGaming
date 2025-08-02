@@ -153,7 +153,7 @@ body::before {
   width: 100%;
   height: 100%;
   background: url('https://www.transparenttextures.com/patterns/cloudy.png'); /* mlžná textura */
-  opacity: 0.03;
+  opacity: 0.1;
   animation: mlhaPohyb 60s linear infinite;
   z-index: -1;
   pointer-events: none;
