@@ -5,21 +5,6 @@
   padding: 0;
 }
 
-@keyframes pulseGlow {
-  0%, 100% {
-    text-shadow:
-      0 0 5px rgba(255, 244, 214, 0.8),
-      0 0 15px rgba(255, 244, 214, 0.6),
-      0 0 20px rgba(128, 0, 0, 0.7);
-  }
-  50% {
-    text-shadow:
-      0 0 10px rgba(255, 244, 214, 1),
-      0 0 25px rgba(255, 244, 214, 0.9),
-      0 0 30px rgba(128, 0, 0, 0.9);
-  }
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -350,5 +335,70 @@ body::after {
   50% {
     opacity: 0.5;
     transform: translate(-50%, -50%) scale(1.07);
+  }
+}
+
+/* === RESET & ZÁKLADNÍ STYLY === */
+/* ... základní věci, barvy, fonty, layout ... */
+
+
+/* === RUNY A TEXTY === */
+/* ... styly pro .runa, nadpisy, menu, atd. ... */
+
+
+/* === VIZUÁLNÍ EFEKTY: MĚSÍC + MLHA === */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(180, 200, 255, 0.08),
+    transparent 80%
+  );
+  filter: blur(60px);
+  animation: mistMove 60s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at center, rgba(255, 244, 214, 0.15), transparent 80%);
+  opacity: 0.5;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+  animation: moonGlowPulse 20s ease-in-out infinite;
+}
+
+
+/* === ANIMACE PRO EFEKTY === */
+@keyframes mistMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(30px, 30px);
+  }
+}
+
+@keyframes moonGlowPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.05);
   }
 }
