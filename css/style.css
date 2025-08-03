@@ -491,3 +491,95 @@ body::after {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.2);
 }
+.blog-podmenu {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0 3rem 0;
+}
+
+.podmenu-odkaz {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--highlight-glow);
+  background: rgba(46, 79, 61, 0.15);
+  border: 1.5px solid var(--forest-green);
+  border-radius: 10px;
+  padding: 0.7rem 2rem;
+  letter-spacing: 1px;
+  text-decoration: none;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.13);
+  transition: background 0.2s, color 0.2s, box-shadow 0.25s;
+}
+
+.podmenu-odkaz:hover,
+.podmenu-odkaz.active {
+  background: var(--highlight-glow);
+  color: var(--bg-dark);
+  box-shadow: 0 4px 24px rgba(168, 255, 227, 0.11);
+}
+
+.clanky-prehled {
+  display: grid;
+  gap: 2.2rem;
+  max-width: 950px;
+  margin: 0 auto 4rem auto;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 900px) {
+  .clanky-prehled {
+    grid-template-columns: 1fr;
+  }
+}
+
+.clanek {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.04);
+  padding: 2rem 1.3rem 1.4rem 1.3rem;
+  border-left: 5px solid var(--highlight-glow);
+  border-radius: 11px;
+  min-height: 170px;
+  box-shadow: 0 1px 16px rgba(46, 79, 61, 0.13);
+  transition: background-color 0.2s, transform 0.2s;
+}
+.clanek:hover {
+  background-color: rgba(255, 255, 255, 0.09);
+  transform: translateY(-5px) scale(1.02);
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.3em 0.9em;
+  border-radius: 2em;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 1px 8px rgba(168, 255, 227, 0.08);
+}
+.badge.novinka {
+  background: rgba(255, 244, 214, 0.18);
+  color: #f7d560;
+  border: 1px solid #ffe7a3;
+}
+.badge.recenze {
+  background: rgba(168, 255, 227, 0.15);
+  color: var(--highlight-glow);
+  border: 1px solid var(--forest-green);
+}
+
+.clanek h3 {
+  color: var(--moon-silver);
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+  text-shadow: 0 0 6px rgba(168, 255, 227, 0.13);
+}
+
+.clanek p {
+  color: rgba(220, 230, 240, 0.88);
+  font-size: 1.03rem;
+  margin-bottom: 1.2rem;
+}
