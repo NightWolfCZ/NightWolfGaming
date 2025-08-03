@@ -1,56 +1,86 @@
 <!DOCTYPE html>
 <html lang="cs">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Night Wolf Gaming</title>
-        <link rel="stylesheet" href="/css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-    </head>
-    <body>
-        <header class="navbar">
-            <div class="logo">
-                <img src="/img/wolf-logo.png" alt="Night Wolf logo" class="logo-img" />
-            </div>
-            <nav class="runove-menu">
-  <a class="runa-blok" href="/index.html">
-    <span class="runa">ᚺ</span>
-    <span class="popisek">Úvod</span>
-  </a>
-  <a class="runa-blok" href="/blog/index.html">
-    <span class="runa">ᛃ</span>
-    <span class="popisek">Blog</span>
-  </a>
-  <a class="runa-blok" href="/reference/index.html">
-    <span class="runa">ᚨ</span>
-    <span class="popisek">Reference</span>
-  </a>
-  <a class="runa-blok" href="/kontakt/index.html">
-    <span class="runa">ᚠ</span>
-    <span class="popisek">Kontakt</span>
-  </a>
-</nav>
-        </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Night Wolf Gaming</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
 
-<section id="kontakt" class="kontakt">
-  <h2>Kontaktuj mě</h2>
-  <p>Chceš se na něco zeptat, poslat tip nebo jen pokecat? Klidně napiš!</p>
-  <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="contact_time">
-    <!-- Skrytý input proti botům -->
-    <input type="hidden" name="form-name" value="kontakt" />
-    <p style="display:none">
-      <label>Neplň mě, prosím (anti-spam): <input name="contact_time" /></label>
-    </p>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-RZ4DDY5K4D"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-    <input type="text" name="name" placeholder="Tvé jméno" required>
-    <input type="email" name="email" placeholder="Tvůj email" required>
-    <textarea name="message" placeholder="Zpráva..." rows="5" required></textarea>
-    <button type="submit">Odeslat</button>
-  </form>
-</section>
+      gtag("config", "G-RZ4DDY5K4D");
+    </script>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <img src="/img/wolf-logo.png" alt="Night Wolf logo" class="logo-img" />
+      </div>
+      <nav class="runove-menu">
+        <a class="runa-blok" href="/index.html">
+          <span class="runa">ᚺ</span>
+          <span class="popisek">Úvod</span>
+        </a>
+        <a class="runa-blok" href="/blog/index.html">
+          <span class="runa">ᛃ</span>
+          <span class="popisek">Blog</span>
+        </a>
+        <a class="runa-blok" href="/reference/index.html">
+          <span class="runa">ᚨ</span>
+          <span class="popisek">Reference</span>
+        </a>
+        <a class="runa-blok" href="/kontakt/index.html">
+          <span class="runa">ᚠ</span>
+          <span class="popisek">Kontakt</span>
+        </a>
+      </nav>
+    </header>
 
-        <footer class="footer">
-            <p>&copy; 2025 Night Wolf Gaming</p>
-        </footer>
-    </body>
+    <section id="kontakt" class="kontakt">
+      <h2>Kontaktuj mě</h2>
+      <p>Chceš se na něco zeptat, poslat tip nebo jen pokecat? Klidně napiš!</p>
+      <form
+        name="kontakt"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="contact_time"
+      >
+        <!-- Skrytý input proti botům -->
+        <input type="hidden" name="form-name" value="kontakt" />
+        <p style="display: none">
+          <label
+            >Neplň mě, prosím (anti-spam): <input name="contact_time"
+          /></label>
+        </p>
+
+        <input type="text" name="name" placeholder="Tvé jméno" required />
+        <input type="email" name="email" placeholder="Tvůj email" required />
+        <textarea
+          name="message"
+          placeholder="Zpráva..."
+          rows="5"
+          required
+        ></textarea>
+        <button type="submit">Odeslat</button>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2025 Night Wolf Gaming</p>
+    </footer>
+  </body>
 </html>

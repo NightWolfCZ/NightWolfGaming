@@ -5,9 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Contact | Night Wolf Gaming</title>
     <link rel="stylesheet" href="/css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-    <link rel="alternate" hreflang="cs" href="https://nightwolfgaming.netlify.app/kontakt/index.html" />
-    <link rel="alternate" hreflang="en" href="https://nightwolfgaming.netlify.app/en/kontakt/index.html" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="alternate"
+      hreflang="cs"
+      href="https://nightwolfgaming.netlify.app/kontakt/index.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://nightwolfgaming.netlify.app/en/kontakt/index.html"
+    />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-RZ4DDY5K4D"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-RZ4DDY5K4D");
+    </script>
   </head>
   <body>
     <header class="navbar">
@@ -37,16 +63,28 @@
     <section id="contact" class="kontakt">
       <h2>Contact Me</h2>
       <p>Got questions, tips, or just want to chat? Feel free to write!</p>
-      <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="contact_time">
+      <form
+        name="kontakt"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="contact_time"
+      >
         <!-- Hidden input to prevent spam bots -->
         <input type="hidden" name="form-name" value="kontakt" />
-        <p style="display:none">
-          <label>Please don’t fill this out (anti-spam): <input name="contact_time" /></label>
+        <p style="display: none">
+          <label
+            >Please don’t fill this out (anti-spam): <input name="contact_time"
+          /></label>
         </p>
 
         <input type="text" name="name" placeholder="Your Name" required />
         <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Message..." rows="5" required></textarea>
+        <textarea
+          name="message"
+          placeholder="Message..."
+          rows="5"
+          required
+        ></textarea>
         <button type="submit">Send</button>
       </form>
     </section>
