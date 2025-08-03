@@ -5,30 +5,30 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://nightwolfgaming.cz/</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://nightwolfgaming.cz/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://nightwolfgaming.cz/en/" />
-  </url>
+  <loc>https://nightwolfgaming.netlify.app/</loc>
+  <xhtml:link rel="alternate" hreflang="cs" href="https://nightwolfgaming.netlify.app/index.html/" />
+  <xhtml:link rel="alternate" hreflang="en" href="https://nightwolfgaming.netlify.app/en.html/" />
+</url>
 
   <!-- Blog -->
   <url>
-    <loc>https://nightwolfgaming.cz/blog/</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://nightwolfgaming.cz/blog/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://nightwolfgaming.cz/en/blog/" />
-  </url>
+  <loc>https://nightwolfgaming.netlify.app/</loc>
+  <xhtml:link rel="alternate" hreflang="cs" href="https://nightwolfgaming.netlify.app/blog/index.html/" />
+  <xhtml:link rel="alternate" hreflang="en" href="https://nightwolfgaming.netlify.app/blog/en.html/" />
+</url>
 
   <!-- Reference -->
   <url>
-    <loc>https://nightwolfgaming.cz/reference/</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://nightwolfgaming.cz/reference/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://nightwolfgaming.cz/en/reference/" />
-  </url>
+  <loc>https://nightwolfgaming.netlify.app/</loc>
+  <xhtml:link rel="alternate" hreflang="cs" href="https://nightwolfgaming.netlify.app/reference/index.html/" />
+  <xhtml:link rel="alternate" hreflang="en" href="https://nightwolfgaming.netlify.app/reference/en.html/" />
+</url>
 
   <!-- Kontakt -->
   <url>
-    <loc>https://nightwolfgaming.cz/kontakt/</loc>
-    <xhtml:link rel="alternate" hreflang="cs" href="https://nightwolfgaming.cz/kontakt/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://nightwolfgaming.cz/en/contact/" />
-  </url>
+  <loc>https://nightwolfgaming.netlify.app/</loc>
+  <xhtml:link rel="alternate" hreflang="cs" href="https://nightwolfgaming.netlify.app/kontakt/index.html/" />
+  <xhtml:link rel="alternate" hreflang="en" href="https://nightwolfgaming.netlify.app/kontakt/en.html/" />
+</url>
 
 </urlset>
