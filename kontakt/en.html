@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact | Night Wolf Gaming</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="alternate" hreflang="cs" href="https://nightwolfgaming.netlify.app/kontakt/index.html" />
+    <link rel="alternate" hreflang="en" href="https://nightwolfgaming.netlify.app/en/kontakt/index.html" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <img src="/img/wolf-logo.png" alt="Night Wolf logo" class="logo-img" />
+      </div>
+      <nav class="runove-menu">
+        <a class="runa-blok" href="/en.html">
+          <span class="runa">ᚺ</span>
+          <span class="popisek">Home</span>
+        </a>
+        <a class="runa-blok" href="/blog/en.html">
+          <span class="runa">ᛃ</span>
+          <span class="popisek">Blog</span>
+        </a>
+        <a class="runa-blok" href="/reference/en.html">
+          <span class="runa">ᚨ</span>
+          <span class="popisek">References</span>
+        </a>
+        <a class="runa-blok" href="/kontakt/en.html">
+          <span class="runa">ᚠ</span>
+          <span class="popisek">Contact</span>
+        </a>
+      </nav>
+    </header>
+
+    <section id="contact" class="kontakt">
+      <h2>Contact Me</h2>
+      <p>Got questions, tips, or just want to chat? Feel free to write!</p>
+      <form name="kontakt" method="POST" data-netlify="true" netlify-honeypot="contact_time">
+        <!-- Hidden input to prevent spam bots -->
+        <input type="hidden" name="form-name" value="kontakt" />
+        <p style="display:none">
+          <label>Please don’t fill this out (anti-spam): <input name="contact_time" /></label>
+        </p>
+
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Message..." rows="5" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2025 Night Wolf Gaming</p>
+    </footer>
+  </body>
+</html>

@@ -390,3 +390,34 @@ body::after {
     transform: translate(-50%, -50%) scale(1.05);
   }
 }
+
+/* Switch */
+.lang-runes {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  z-index: 10;
+}
+
+.lang-runes a {
+  color: var(--moon-silver, #ccc);
+  text-decoration: none;
+  margin-left: 0.7rem;
+  font-size: 0.9rem;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lang-runes a:hover {
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.2);
+}
+
