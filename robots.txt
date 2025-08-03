@@ -1,4 +1,5 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://nightwolfgaming.cz/sitemap.xml
+Sitemap: https://nightwolfgaming.netlify.app/sitemap.xml
+
