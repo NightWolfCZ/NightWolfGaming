@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="google86a6039ac437c7ef" />
-
     <title>Night Wolf Gaming</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link
@@ -50,6 +49,10 @@
           <span class="popisek">Contact</span>
         </a>
       </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        &#9776;
+        <!-- tenhle znak je tři čárky aka hamburger -->
+      </button>
     </header>
 
     <main>
@@ -65,5 +68,18 @@
     <footer class="footer">
       <p>&copy; 2025 Night Wolf Gaming</p>
     </footer>
+
+    <script>
+      const toggleBtn = document.querySelector(".menu-toggle");
+      const menu = document.querySelector(".runove-menu");
+
+      toggleBtn.addEventListener("click", () => {
+        if (menu.style.display === "flex") {
+          menu.style.display = "none";
+        } else {
+          menu.style.display = "flex";
+        }
+      });
+    </script>
   </body>
 </html>
