@@ -18,5 +18,11 @@
       }
     });
   </script>
+  <script>
+  const hash = window.location.hash;
+  if (hash.includes("invite_token") || hash.includes("confirmation_token")) {
+    window.location.href = "/admin/" + hash;
+  }
+</script>
 </body>
 </html>
