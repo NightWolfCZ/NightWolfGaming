@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
-  branch: main
+  name: github
+  repo: NightWolfCZ/NightWolfGaming
+  branch: master
+  auth_scope: repo
+  base_url: https://nightwolfgaming.netlify.app
 
 media_folder: "static/img"
 public_folder: "/img"
