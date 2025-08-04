@@ -2,8 +2,8 @@ backend:
   name: github
   repo: NightWolfCZ/NightWolfGaming
   branch: main
+  base_url: https://tvujwebnightwolfgaming.netlify.app
   auth_scope: repo
-  base_url: https://nightwolfgaming.netlify.app
 
 media_folder: "static/img"
 public_folder: "/img"
@@ -15,6 +15,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Nadpis", name: "title", widget: "string" }
+      - { label: "Datum", name: "date", widget: "datetime" }
+      - { label: "Obrázek", name: "image", widget: "image" }
+      - { label: "Obsah", name: "body", widget: "markdown" }
