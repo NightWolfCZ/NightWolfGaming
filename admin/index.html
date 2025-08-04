@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<html lang="cs">
-  <head>
-    <meta charset="UTF-8" />
-    <title>NightWolf Admin</title>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
-  </head>
-  <body>
-    <!-- obsah může být i prázdný -->
-
-    <script>
-  document.addEventListener("DOMContentLoaded", function() {
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>NightWolf Admin</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <script>
     if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", (user) => {
+      window.netlifyIdentity.on("init", user => {
         if (!user) {
           window.netlifyIdentity.on("login", () => {
             document.location.href = "/admin/";
@@ -19,8 +16,7 @@
         }
       });
     }
-  });
-</script>
-<script src="https://cdn.jsdelivr.net/npm/netlify-cms@^2.0.0/dist/netlify-cms.js" defer></script>
-  </body>
+  </script>
+  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+</body>
 </html>
