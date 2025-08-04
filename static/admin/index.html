@@ -12,30 +12,7 @@
   <script>
     window.addEventListener('load', function () {
       if (typeof NetlifyCmsApp !== 'undefined') {
-        NetlifyCmsApp.init({
-          config: {
-            backend: {
-              name: "git-gateway",
-              branch: "main"
-            },
-            media_folder: "static/img",
-            public_folder: "/img",
-            collections: [
-              {
-                name: "blog",
-                label: "Blog",
-                folder: "content/blog",
-                create: true,
-                slug: "{{slug}}",
-                fields: [
-                  { label: "Title", name: "title", widget: "string" },
-                  { label: "Date", name: "date", widget: "datetime" },
-                  { label: "Body", name: "body", widget: "markdown" }
-                ]
-              }
-            ]
-          }
-        });
+        NetlifyCmsApp.init(); // ✅ použije externí config.yml
       } else {
         console.error("NetlifyCmsApp is not defined");
       }
