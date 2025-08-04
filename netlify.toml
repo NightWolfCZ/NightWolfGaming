@@ -1,0 +1,13 @@
+[build]
+  publish = "public" # nebo např. "dist", "build", podle toho, kam se ti generuje web
+  command = "" # pokud nemáš žádný build proces, nech prázdné nebo smaž řádek
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/.netlify/functions/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
