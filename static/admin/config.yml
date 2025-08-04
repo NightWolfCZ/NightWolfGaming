@@ -19,9 +19,9 @@ collections:
     label: "Recenze"
     folder: "content/recenze"
     create: true
-    slug: "{ {slug} }"
+    slug: "{{slug}}"
     fields:
-      - {label: "Název hry", name: "title", widget: "string"}
-      - {label: "Platforma", name: "platform", widget: "string"}
-      - {label: "Datum", name: "date", widget: "datetime"}
-      - {label: "Obsah", name: "body", widget: "markdown"}
+      - { label: "Název hry", name: "title", widget: "string" }
+      - { label: "Platforma", name: "platform", widget: "string" }
+      - { label: "Datum", name: "date", widget: "datetime" }
+      - { label: "Obsah", name: "body", widget: "markdown" }
