@@ -1,6 +1,8 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: "NightWolfCZ/NightWolfGaming"
   branch: master
+  auth_type: pkce
 
 media_folder: "static/img"
 public_folder: "/img"
