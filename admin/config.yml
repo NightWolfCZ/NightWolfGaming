@@ -2,7 +2,7 @@ backend:
   name: github
   repo: NightWolfCZ/NightWolfGaming
   branch: master
-  base_url: https://nightwolf-oauth-server.vercel.app/
+  base_url: https://nightwolf-oauth-server-oaexbn0xu-night-wolfs-projects.vercel.app
   auth_scope: repo
 
 
