@@ -1,5 +1,6 @@
 backend:
-  name: github
+  name: git-gateway
+  branch: master
   repo: "NightWolfCZ/NightWolfGaming"
   branch: master
   auth_type: pkce
