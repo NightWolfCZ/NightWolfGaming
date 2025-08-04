@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: NightWolfCZ/nightwolfgaming
+  repo: NightWolfCZ/NightWolfGaming
   branch: main
   auth_type: pkce
 
