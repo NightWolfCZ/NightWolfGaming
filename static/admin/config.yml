@@ -8,12 +8,23 @@ media_folder: "static/img"
 public_folder: "/img"
 
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "content/blog"
+  - name: "novinky"
+    label: "Novinky"
+    folder: "content/novinky"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Titulek", name: "title", widget: "string" }
+      - { label: "Datum", name: "date", widget: "datetime" }
+      - { label: "Obsah", name: "body", widget: "markdown" }
+
+  - name: "recenze"
+    label: "Recenze"
+    folder: "content/recenze"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titulek", name: "title", widget: "string" }
+      - { label: "Hra", name: "game", widget: "string" }
+      - { label: "Hodnocení", name: "rating", widget: "number", min: 0, max: 10, step: 1 }
+      - { label: "Obsah", name: "body", widget: "markdown" }
