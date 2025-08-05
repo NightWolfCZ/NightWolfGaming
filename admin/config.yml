@@ -2,14 +2,14 @@ backend:
   name: github
   repo: NightWolfCZ/NightWolfGaming
   branch: master
-  base_url: https://nightwolf-oauth-server-oaexbn0xu-night-wolfs-projects.vercel.app
+  base_url: https://nightwolfgaming.vercel.app
   auth_scope: repo
 
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
-site_url: "https://nightwolfgaming.github.io" # změň na svou URL
+site_url: "https://nightwolfgaming.vercel.app" # změň na svou URL
 
 collections:
   - name: "pages"
