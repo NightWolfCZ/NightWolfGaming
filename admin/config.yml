@@ -3,7 +3,7 @@ backend:
   repo: NightWolfCZ/NightWolfGaming
   branch: master
   base_url: https://nightwolfgaming.vercel.app
-  auth_scope: repo
+  auth_endpoint: repo
 
 
 media_folder: "images/uploads"
