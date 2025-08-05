@@ -1,4 +1,4 @@
-source: . # kořenová složka webu
+source: . # Kořenová složka webu
 
 collections_config:
   blog:
