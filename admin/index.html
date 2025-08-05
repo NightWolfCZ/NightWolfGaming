@@ -1,32 +1,10 @@
 <!DOCTYPE html>
-<html lang="cs">
-<head>
-  <meta charset="UTF-8">
-  <title>Přihlášení přes GitHub</title>
-</head>
-<body>
-  <a id="github-login" href="#">Přihlásit se přes GitHub</a>
-
-  <script>
-    // 🔐 Hodnoty z GitHub OAuth aplikace
-    const clientId = 'Ov23liNPShePvx3Ui0GG'; // 👉 nahraď svou hodnotou
-    const redirectUri = 'https://nightwolfgaming.vercel.app/api/auth/callback'; // 👉 nahraď podle konfigurace
-
-    const state = crypto.randomUUID(); // bezpečný nonce pro CSRF ochranu
-
-    const githubOAuthUrl =
-      'https://github.com/login/oauth/authorize?' +
-      'client_id=' + encodeURIComponent(clientId) +
-      '&redirect_uri=' + encodeURIComponent(redirectUri) +
-      '&scope=repo,user' +
-      '&state=' + encodeURIComponent(state);
-
-    // 💬 Zalogujeme pro kontrolu
-    console.log('GitHub OAuth URL:', githubOAuthUrl);
-
-    // 🎯 Vložíme do odkazu
-    document.getElementById('github-login').href = githubOAuthUrl;
-  </script>
-</body>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>NightWolf Gaming CMS</title>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  </head>
+  <body>
+  </body>
 </html>
-
