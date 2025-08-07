@@ -106,6 +106,28 @@
         <span class="date">3. 8. 2025</span>
       </article>
       <!-- Další novinky přidej tímto stylem... -->
+      <div id="novinky-blok">
+        <script>
+          fetch("/data/novinky/novinky.json")
+            .then((res) => res.json())
+            .then((data) => {
+              const blok = document.getElementById("novinky-blok");
+              data.forEach((item) => {
+                blok.innerHTML += `
+          <div class="novinka">
+            <h3>${item.nazev}</h3>
+            <p><em>${item.datum}</em></p>
+            <p>${item.obsah}</p>
+            <a href="${item.odkaz}">Číst dál</a>
+          </div>
+        `;
+              });
+            })
+            .catch((err) => {
+              console.error("Chyba při načítání novinek:", err);
+            });
+        </script>
+      </div>
     </section>
 
     <footer class="footer">
