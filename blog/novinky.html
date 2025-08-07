@@ -133,5 +133,20 @@
     <footer class="footer">
       <p>&copy; 2025 Night Wolf Gaming</p>
     </footer>
+    fetch('/novinky/novinky.json')
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById('novinky-list');
+    data.forEach(item => {
+      container.innerHTML += `
+        <article class="novinka-box">
+          <h2><a href="${item.url}">${item.title}</a></h2>
+          <p>${item.date}</p>
+          <p>${item.summary}</p>
+        </article>
+      `;
+    });
+  });
+
   </body>
 </html>
