@@ -108,7 +108,7 @@
       <!-- Další novinky přidej tímto stylem... -->
       <div id="novinky-blok">
         <script>
-          fetch("/data/novinky/novinky.json")
+          fetch("/novinky/novinky.json")
             .then((res) => res.json())
             .then((data) => {
               const blok = document.getElementById("novinky-blok");
@@ -128,17 +128,15 @@
             });
         </script>
       </div>
-    </section>
 
-    <footer class="footer">
-      <p>&copy; 2025 Night Wolf Gaming</p>
-    </footer>
-    fetch('/novinky/novinky.json')
-  .then(res => res.json())
-  .then(data => {
-    const container = document.getElementById('novinky-list');
-    data.forEach(item => {
-      container.innerHTML += `
+      <div id="novinky-blok">
+        <script>
+          fetch('/data/novinky/novinky.json')
+          .then(res => res.json())
+          .then(data => {
+            const container = document.getElementById('novinky-list');
+            data.forEach(item => {
+              container.innerHTML += `
         <article class="novinka-box">
           <h2><a href="${item.url}">${item.title}</a></h2>
           <p>${item.date}</p>
@@ -147,6 +145,12 @@
       `;
     });
   });
+        </script>
+      </div>
+    </section>
 
+    <footer class="footer">
+      <p>&copy; 2025 Night Wolf Gaming</p>
+    </footer>
   </body>
 </html>
