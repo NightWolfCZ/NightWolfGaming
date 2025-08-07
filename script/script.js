@@ -7,16 +7,22 @@ function scrollToSection(id) {
   }
 }
 
-fetch('menu.html')
-  .then(res => res.text())
+fetch("/novinky/novinky.json")
+  .then(res => res.json())
   .then(data => {
-    document.getElementById('menu').innerHTML = data;
-
-    // Inicializace až po vložení menu
-    const toggleBtn = document.querySelector(".menu-toggle");
-    const menu = document.querySelector(".runove-menu");
-
-    toggleBtn.addEventListener("click", () => {
-      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    const container = document.getElementById("novinky-list");
+    data.forEach(item => {
+      container.innerHTML += `
+        <article class="novinka-box">
+          <span class="badge novinka">Novinka</span>
+          <h2><a href="${item.contentFile}">${item.title}</a></h2>
+          <p><em>${item.date}</em> — Autor: ${item.author}</p>
+        </article>
+      `;
     });
+  })
+  .catch(err => {
+    console.error("Chyba při načítání novinek:", err);
+    const container = document.getElementById("novinky-list");
+    container.innerHTML = "<p>Novinky se nepodařilo načíst, zkuste to prosím později.</p>";
   });
