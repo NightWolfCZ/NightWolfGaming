@@ -1,134 +1,88 @@
 <!DOCTYPE html>
 <html lang="cs">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Novinky – NightWolf Gaming</title>
-    <meta
-      name="description"
-      content="Čerstvé novinky z herního světa. Sleduj nejnovější události, releasy a zajímavosti s NightWolf Gaming!"
-    />
-    <link
-      rel="canonical"
-      href="https://nightwolfgaming.netlify.app/blog/novinky.html"
-    />
-    <link
-      rel="alternate"
-      hreflang="cs"
-      href="https://nightwolfgaming.netlify.app/blog/novinky.html"
-    />
-    <link
-      rel="alternate"
-      hreflang="en"
-      href="https://nightwolfgaming.netlify.app/en/blog/news.html"
-    />
-
-    <link rel="stylesheet" href="/css/style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Google tag (gtag.js) ... (necháš stejné jako na hlavní stránce) -->
-
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/img/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/img/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/img/favicon-16x16.png"
-    />
-    <link rel="manifest" href="/site.webmanifest" />
-  </head>
-  <body>
-    <header class="navbar">
-      <div class="logo">
-        <img src="/img/wolf-logo.png" alt="Night Wolf logo" class="logo-img" />
-      </div>
-      <nav class="runove-menu">
-        <a class="runa-blok" href="/index.html">
-          <span class="runa">ᚺ</span>
-          <span class="popisek">Úvod</span>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Novinky – NightWolf Gaming</title>
+  <meta name="description" content="Čerstvé novinky z herního světa. Sleduj nejnovější události, releasy a zajímavosti s NightWolf Gaming!" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="/img/wolf-logo.png" alt="Night Wolf logo" class="logo-img" />
+    </div>
+    <nav class="runove-menu">
+      <a class="runa-blok" href="/index.html">
+        <span class="runa">ᚺ</span>
+        <span class="popisek">Úvod</span>
+      </a>
+      <div class="runa-blok has-dropdown">
+        <a href="/blog/index.html">
+          <span class="runa">ᛃ</span>
+          <span class="popisek">Blog</span>
         </a>
-        <div class="runa-blok has-dropdown">
-          <a href="/blog/index.html">
-            <span class="runa">ᛃ</span>
-            <span class="popisek">Blog</span>
+        <div class="dropdown-content">
+          <a href="/blog/novinky.html" class="active">
+            <span class="runa">ᚾ</span>
+            <span class="popisek">Novinky</span>
           </a>
-          <div class="dropdown-content">
-            <a href="/blog/novinky.html" class="active">
-              <span class="runa">ᚾ</span>
-              <span class="popisek">Novinky</span>
-            </a>
-            <a href="/blog/recenze.html">
-              <span class="runa">ᚱ</span>
-              <span class="popisek">Recenze</span>
-            </a>
-          </div>
+          <a href="/blog/recenze.html">
+            <span class="runa">ᚱ</span>
+            <span class="popisek">Recenze</span>
+          </a>
         </div>
-        <a class="runa-blok" href="/reference/index.html">
-          <span class="runa">ᚨ</span>
-          <span class="popisek">Reference</span>
-        </a>
-        <a class="runa-blok" href="/kontakt/index.html">
-          <span class="runa">ᚠ</span>
-          <span class="popisek">Kontakt</span>
-        </a>
-      </nav>
-    </header>
-
-    <section class="hero">
-      <h1>Novinky smečky</h1>
-      <p>
-        Nejčerstvější zprávy, trailery, updaty a zajímavosti z herního světa.
-      </p>
-    </section>
-
-    <section class="clanky-prehled">
-      <!-- Ukázka novinek, každou další přidáš stejným způsobem -->
-      <article class="clanek novinka">
-        <span class="badge novinka">Novinka</span>
-        <h3>NightWolf Gaming spouští vlastní sekci Novinky!</h3>
-        <p>
-          Tuhle rubriku budeme pravidelně krmit čerstvými herními novinkami,
-          updaty a vším, co smečka uloví!
-        </p>
-        <span class="date">3. 8. 2025</span>
-      </article>
-      <!-- Další novinky přidej tímto stylem... -->
-
-      <div id="novinky-blok">
-        <script>
-          fetch('/novinky/novinky.json')
-          .then(res => res.json())
-          .then(data => {
-            const container = document.getElementById('novinky-list');
-            data.forEach(item => {
-              container.innerHTML += `
-        <article class="novinka-box">
-          <h2><a href="${item.url}">${item.title}</a></h2>
-          <p>${item.date}</p>
-          <p>${item.summary}</p>
-        </article>
-      `;
-    });
-  });
-        </script>
       </div>
-    </section>
+      <a class="runa-blok" href="/reference/index.html">
+        <span class="runa">ᚨ</span>
+        <span class="popisek">Reference</span>
+      </a>
+      <a class="runa-blok" href="/kontakt/index.html">
+        <span class="runa">ᚠ</span>
+        <span class="popisek">Kontakt</span>
+      </a>
+    </nav>
+  </header>
 
-    <footer class="footer">
-      <p>&copy; 2025 Night Wolf Gaming</p>
-    </footer>
-  </body>
+  <section class="hero">
+    <h1>Novinky smečky</h1>
+    <p>Nejčerstvější zprávy, trailery, updaty a zajímavosti z herního světa.</p>
+  </section>
+
+  <section class="clanky-prehled" id="novinky-list">
+    <!-- Sem se načtou články z JSON -->
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Night Wolf Gaming</p>
+  </footer>
+
+  <script>
+    fetch("/novinky/novinky.json")
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("novinky-list");
+        data.forEach(item => {
+          container.innerHTML += `
+            <article class="novinka-box">
+              <span class="badge novinka">Novinka</span>
+              <h2><a href="${item.url}">${item.title}</a></h2>
+              <p><em>${item.date}</em></p>
+              <p>${item.summary}</p>
+            </article>
+          `;
+        });
+      })
+      .catch(err => {
+        console.error("Chyba při načítání novinek:", err);
+        const container = document.getElementById("novinky-list");
+        container.innerHTML = "<p>Novinky se nepodařilo načíst, zkuste to prosím později.</p>";
+      });
+  </script>
+</body>
 </html>
