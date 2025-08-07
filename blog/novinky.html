@@ -131,7 +131,7 @@
 
       <div id="novinky-blok">
         <script>
-          fetch('/data/novinky/novinky.json')
+          fetch('/novinky/novinky.json')
           .then(res => res.json())
           .then(data => {
             const container = document.getElementById('novinky-list');
