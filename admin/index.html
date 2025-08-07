@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>NightWolf Gaming CMS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  </head>
+  <body>
+    <!-- TADY musí být element pro mount -->
+    <script>
+      window.CMS_MANUAL_INIT = true;
+    </script>
+    <script>
+      fetch("/admin/config.yml")
+        .then((res) => res.text())
+        .then((config) => {
+          const yaml = window.jsyaml.load(config);
+          window.CMS.init({ config: yaml });
+        });
+    </script>
+    <script src="https://unpkg.com/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  </body>
+</html>
