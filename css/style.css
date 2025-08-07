@@ -556,3 +556,14 @@ body::after {
     color: var(--highlight-glow);
   }
 }
+
+.article-content {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.article-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
