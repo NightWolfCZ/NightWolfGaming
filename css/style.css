@@ -570,15 +570,15 @@ body::after {
 /* About section */
 .about-extra {
   padding: 2rem;
-  background: transparent;
-  color: #fff;
+  background: #0f0f1c; /* tvůj tmavý základ */
+  color: #a8ffe3;      /* světle tyrkysová text */
   border-radius: 10px;
   margin-top: 2rem;
 }
 
 .about-extra h2 {
   margin-top: 1.5rem;
-  color: var(--highlight-glow);
+  color: #a8ffe3; /* světle tyrkysová nadpisy */
 }
 
 .features {
@@ -589,15 +589,17 @@ body::after {
 
 .feature {
   flex: 1 1 200px;
-  background: var(--forest-green);
+  background: #1c1c2e; /* tmavší modročerný */
   padding: 1rem;
   border-radius: 8px;
   text-align: center;
+  color: #e0f0ff; /* světle modrá */
 }
 
 .feature i {
   font-size: 2rem;
-  color: var(--moon-silver);
+  color: #a8ffe3; /* tyrkysová ikony */
+  margin-bottom: 0.5rem;
 }
 
 .fun-facts {
@@ -607,35 +609,39 @@ body::after {
 
 .fun-facts li {
   padding: 0.5rem 0;
-  border-bottom: 1px solid var(--bg-dark);
+  border-bottom: 1px solid #2e4f3d; /* tmavší zelená linka */
+  color: #a8ffe3;
 }
 
 .timeline {
   list-style: none;
   padding: 0;
-  border-left: 2px solid var(--moon-silver);
+  border-left: 2px solid #2e4f3d; /* tmavší zelená linka */
 }
 
 .timeline li {
   padding-left: 1rem;
   position: relative;
   margin-bottom: 1rem;
+  color: #e0f0ff;
 }
 
 .timeline li span {
   font-weight: bold;
-  color: var(--moon-silver);
+  color: #a8ffe3;
 }
 
 .social-links a {
   font-size: 1.5rem;
   margin-right: 1rem;
-  color: var(--moon-silver);
+  color: #a8ffe3;
+  transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-  color: var(--monn-silver);
+  color: #e0f0ff;
 }
+
 
 
 .cta-buttons {
