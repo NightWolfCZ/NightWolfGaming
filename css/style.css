@@ -567,3 +567,98 @@ body::after {
   margin-bottom: 1rem;
 }
 
+/* About section */
+.about-section {
+  background: radial-gradient(circle at top, rgba(46, 79, 61, 0.05), transparent 70%);
+  padding: 6rem 2rem;
+  text-align: center;
+  backdrop-filter: blur(4px);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.about-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+  color: var(--moon-silver);
+  text-shadow: 0 0 12px rgba(168, 255, 227, 0.2);
+}
+
+.about-section p {
+  font-size: 1.2rem;
+  color: rgba(220, 230, 240, 0.75);
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.cta-button,
+.cta-button.ghost {
+  background-color: var(--forest-green);
+  padding: 0.8rem 1.4rem;
+  border-radius: 10px;
+  font-weight: 600;
+  color: var(--moon-silver);
+  box-shadow: 0 0 10px rgba(46, 79, 61, 0.3);
+  border: 1px solid rgba(168, 255, 227, 0.3);
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover,
+.cta-button.ghost:hover {
+  background-color: var(--highlight-glow);
+  color: var(--bg-dark);
+  box-shadow: 0 0 16px rgba(168, 255, 227, 0.4);
+}
+
+.cta-button.ghost {
+  background: transparent;
+  color: var(--moon-silver);
+  border: 2px solid var(--highlight-glow);
+}
+
+.about-image {
+  margin-top: 3rem;
+}
+
+.about-image img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Optional fade-in on scroll (if you're using JS observer) */
+.about-image img.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.about-image img.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .about-section h1 {
+    font-size: 2rem;
+  }
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}

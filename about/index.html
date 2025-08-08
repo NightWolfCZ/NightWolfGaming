@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>O mně – NightWolf Gaming</title>
+  <meta name="description" content="Kdo je NightWolfGaming? Herní projekt plný temné estetiky, webového vývoje a upřímného přístupu." />
+  <meta name="author" content="NightWolf" />
+  <meta property="og:title" content="O mně – NightWolf Gaming" />
+  <meta property="og:description" content="Poznej tvůrce projektu NightWolfGaming — recenze, streamy, vývoj." />
+  <meta property="og:image" content="https://nightwolfgaming.netlify.app/img/share-image.jpg" />
+  <meta property="og:url" content="https://nightwolfgaming.netlify.app/about/index.html" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="/img/wolf-logo.png" alt="Night Wolf logo" class="logo-img" />
+    </div>
+    <div class="lang-runes">
+      <a href="/index.html" title="Čeština">ᚲ CZ</a>
+      <a href="/en.html" title="English">ᛖ EN</a>
+    </div>
+
+    <nav class="runove-menu">
+      <a class="runa-blok" href="/index.html"><span class="runa">ᚺ</span><span class="popisek">Úvod</span></a>
+      <div class="runa-blok has-dropdown">
+        <a href="/blog/index.html"><span class="runa">ᛃ</span><span class="popisek">Blog</span></a>
+        <div class="dropdown-content">
+          <a href="/blog/novinky.html"><span class="runa">ᚾ</span><span class="popisek">Novinky</span></a>
+          <a href="/blog/recenze.html"><span class="runa">ᚱ</span><span class="popisek">Recenze</span></a>
+        </div>
+      </div>
+      <a class="runa-blok" href="/reference/index.html"><span class="runa">ᚨ</span><span class="popisek">Reference</span></a>
+      <a class="runa-blok" href="/about/index.html"><span class="runa">ᛉ</span><span class="popisek">O mně</span></a>
+      <a class="runa-blok" href="/kontakt/index.html"><span class="runa">ᚠ</span><span class="popisek">Kontakt</span></a>
+    </nav>
+
+    <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+  </header>
+
+  <main>
+    <section class="about-section">
+      <div class="moonlight-glow"></div>
+      <h1>Kdo je NightWolf?</h1>
+      <p>Jsem Mirek, zakladatel NightWolfGaming. Spojuji lásku k hernímu světu s webovým vývojem, kde žádná komponenta nezůstane bez duše. V každém recenzním článku, každém designu, každé runě je kus mě.</p>
+      <p>NightWolf není jen značka — je to smečka těch, co to chtějí jinak. Hravě, temně, po svém.</p>
+
+      <div class="cta-buttons">
+        <a href="/blog/index.html" class="cta-button">Mrknout na blog</a>
+        <a href="/kontakt/index.html" class="cta-button ghost">Spojit se</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Night Wolf Gaming</p>
+  </footer>
+
+  <script>
+    const toggleBtn = document.querySelector(".menu-toggle");
+    const menu = document.querySelector(".runove-menu");
+    toggleBtn.addEventListener("click", () => {
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    });
+  </script>
+
+</body>
+</html>
