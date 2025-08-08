@@ -596,7 +596,7 @@ body::after {
 
 .feature {
   flex: 1 1 200px;
-  background: rgba(160, 180, 200, 0.05)
+  background: rgba(160, 180, 200, 0.05);
   padding: 1rem;
   border-radius: 8px;
   text-align: center;
