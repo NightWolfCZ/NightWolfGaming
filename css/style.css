@@ -578,7 +578,7 @@ body::after {
 
 .about-extra h2 {
   margin-top: 1.5rem;
-  color: #ff4c4c;
+  color: var(--moon-silver);
 }
 
 .features {
@@ -597,7 +597,7 @@ body::after {
 
 .feature i {
   font-size: 2rem;
-  color: #ff4c4c;
+  color: var(--moon-silver);
 }
 
 .fun-facts {
@@ -613,7 +613,7 @@ body::after {
 .timeline {
   list-style: none;
   padding: 0;
-  border-left: 2px solid #ff4c4c;
+  border-left: 2px solid var(--moon-silver);
 }
 
 .timeline li {
@@ -624,17 +624,17 @@ body::after {
 
 .timeline li span {
   font-weight: bold;
-  color: #ff4c4c;
+  color: var(--moon-silver);
 }
 
 .social-links a {
   font-size: 1.5rem;
   margin-right: 1rem;
-  color: #ff4c4c;
+  color: var(--moon-silver);
 }
 
 .social-links a:hover {
-  color: #ff7b7b;
+  color: var(--monn-silver);
 }
 
 
