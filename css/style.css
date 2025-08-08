@@ -590,7 +590,7 @@ body::after {
 
 .about-extra h2 {
   margin-top: 1.5rem;
-  color: #2e4f3d; /* tmavší zelená */
+  color: var(--moon-silver); /* měsíční stříbrná */
 }
 
 .features {
