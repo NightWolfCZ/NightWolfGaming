@@ -63,23 +63,42 @@
   <body>
     <header class="navbar">
       <div class="logo">
-        <img src="/img/wolf-logo.png" alt="Night Wolf logo" class="logo-img" />
+        <img src="img/wolf-logo.png" alt="Night Wolf logo" class="logo-img" />
       </div>
+      <div class="lang-runes">
+        <a href="/index.html" title="Čeština">ᚲ CZ</a>
+        <a href="/en.html" title="English">ᛖ EN</a>
+      </div>
+
       <nav class="runove-menu">
         <a class="runa-blok" href="/index.html">
           <span class="runa">ᚺ</span>
           <span class="popisek">Úvod</span>
         </a>
-        <a class="runa-blok" href="/blog/index.html">
-          <span class="runa">ᛃ</span>
-          <span class="popisek">Blog</span>
-        </a>
+        <div class="runa-blok has-dropdown">
+          <a href="/blog/index.html">
+            <span class="runa">ᛃ</span>
+            <span class="popisek">Blog</span>
+          </a>
+          <div class="dropdown-content">
+            <a href="/blog/novinky.html">
+              <span class="runa">ᚾ</span>
+              <!-- např. runa N jako Novinky -->
+              <span class="popisek">Novinky</span>
+            </a>
+            <a href="/blog/recenze.html">
+              <span class="runa">ᚱ</span>
+              <!-- runa R jako Recenze -->
+              <span class="popisek">Recenze</span>
+            </a>
+          </div>
+        </div>
         <a class="runa-blok" href="/reference/index.html">
           <span class="runa">ᚨ</span>
           <span class="popisek">Reference</span>
         </a>
         <a class="runa-blok" href="/about/index.html">
-          <span class="runa">ᛉ</span>
+          <span class="runa">ᛉ</span> <!-- runa pro "O mně" -->
           <span class="popisek">O mně</span>
         </a>
         <a class="runa-blok" href="/kontakt/index.html">
@@ -87,6 +106,10 @@
           <span class="popisek">Kontakt</span>
         </a>
       </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        &#9776;
+        <!-- tenhle znak je tři čárky aka hamburger -->
+      </button>
     </header>
 
     <section id="kontakt" class="kontakt">
@@ -121,5 +144,17 @@
     <footer class="footer">
       <p>&copy; 2025 Night Wolf Gaming</p>
     </footer>
+    <script>
+      const toggleBtn = document.querySelector(".menu-toggle");
+      const menu = document.querySelector(".runove-menu");
+
+      toggleBtn.addEventListener("click", () => {
+        if (menu.style.display === "flex") {
+          menu.style.display = "none";
+        } else {
+          menu.style.display = "flex";
+        }
+      });
+    </script>
   </body>
 </html>
