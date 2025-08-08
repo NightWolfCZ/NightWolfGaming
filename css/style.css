@@ -578,7 +578,7 @@ body::after {
 
 .about-extra h2 {
   margin-top: 1.5rem;
-  color: var(--moon-silver);
+  color: var(--highlight-glow);
 }
 
 .features {
