@@ -568,32 +568,75 @@ body::after {
 }
 
 /* About section */
-.about-section {
-  background: radial-gradient(circle at top, rgba(46, 79, 61, 0.05), transparent 70%);
-  padding: 6rem 2rem;
+.about-extra {
+  padding: 2rem;
+  background: #121212;
+  color: #fff;
+  border-radius: 10px;
+  margin-top: 2rem;
+}
+
+.about-extra h2 {
+  margin-top: 1.5rem;
+  color: #ff4c4c;
+}
+
+.features {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.feature {
+  flex: 1 1 200px;
+  background: #1e1e1e;
+  padding: 1rem;
+  border-radius: 8px;
   text-align: center;
-  backdrop-filter: blur(4px);
+}
+
+.feature i {
+  font-size: 2rem;
+  color: #ff4c4c;
+}
+
+.fun-facts {
+  list-style: none;
+  padding: 0;
+}
+
+.fun-facts li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #333;
+}
+
+.timeline {
+  list-style: none;
+  padding: 0;
+  border-left: 2px solid #ff4c4c;
+}
+
+.timeline li {
+  padding-left: 1rem;
   position: relative;
-  overflow: hidden;
-  z-index: 1;
+  margin-bottom: 1rem;
 }
 
-.about-section h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1.2rem;
-  font-weight: 700;
-  color: var(--moon-silver);
-  text-shadow: 0 0 12px rgba(168, 255, 227, 0.2);
+.timeline li span {
+  font-weight: bold;
+  color: #ff4c4c;
 }
 
-.about-section p {
-  font-size: 1.2rem;
-  color: rgba(220, 230, 240, 0.75);
-  margin-bottom: 1.5rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+.social-links a {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  color: #ff4c4c;
 }
+
+.social-links a:hover {
+  color: #ff7b7b;
+}
+
 
 .cta-buttons {
   display: flex;
