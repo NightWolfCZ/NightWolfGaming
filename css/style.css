@@ -569,13 +569,18 @@ body::after {
 
 /* About section */
 .about-extra {
-  max-width: 800px;
-  margin: 4rem auto;
-  padding: 2rem;
   background-color: rgba(160, 180, 200, 0.05);
-  border-radius: 12px;
   backdrop-filter: blur(4px);
+  padding: 4rem 0;
+}
+
+.about-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 12px;
   text-align: center;
+  color: #a8ffe3;
 }
 
 .about-extra h2 {
