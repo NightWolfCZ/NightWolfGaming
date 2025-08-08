@@ -589,7 +589,7 @@ body::after {
 
 .feature {
   flex: 1 1 200px;
-  background: #1e1e1e;
+  background: var(--forest-green);
   padding: 1rem;
   border-radius: 8px;
   text-align: center;
