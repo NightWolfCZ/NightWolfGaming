@@ -26,3 +26,18 @@ fetch("/novinky/novinky.json")
     const container = document.getElementById("novinky-list");
     container.innerHTML = "<p>Novinky se nepodařilo načíst, zkuste to prosím později.</p>";
   });
+
+  document.addEventListener('DOMContentLoaded', () => {
+  fetch('/about/about-extra.html')  // cesta k externímu souboru s tím HTML blokem
+    .then(res => {
+      if (!res.ok) throw new Error('Chyba při načítání about-extra.html');
+      return res.text();
+    })
+    .then(html => {
+      const container = document.createElement('section');
+      container.classList.add('about-extra');
+      container.innerHTML = html;
+      document.querySelector('main').appendChild(container); // přidá to do main
+    })
+    .catch(err => console.error(err));
+});
