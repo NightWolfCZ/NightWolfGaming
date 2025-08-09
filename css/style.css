@@ -750,3 +750,14 @@ body::after {
   box-shadow: 0 8px 32px rgba(168, 255, 227, 0.12), 0 0 24px #0f0f1c;
   background: transparent;
 }
+
+@media (max-width: 600px) {
+  .rubrika-banner {
+    width: 100%;
+    max-width: 96vw;
+    border-radius: 10px;
+  }
+  #novinky {
+    padding: 1rem 0;
+  }
+}
