@@ -730,3 +730,23 @@ body::after {
     align-items: center;
   }
 }
+
+.rubrika-banner-container {
+  position: relative;
+  width: 100%;
+  background-color: var(--forrest-green);
+  border-radius: 6px;
+  box-shadow: 0 6px 20px var(--shadow);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.rubrika-banner {
+  display: block;
+  margin: 2rem auto 1.5rem auto;
+  max-width: 90vw;
+  width: 550px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(168, 255, 227, 0.12), 0 0 24px #0f0f1c;
+  background: transparent;
+}
