@@ -760,4 +760,8 @@ body::after {
   #novinky {
     padding: 1rem 0;
   }
+
+  #recenze {
+    padding: 1rem 0;
+  }
 }
