@@ -21,6 +21,9 @@
   <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png" />
 
+  <!-- AOS efekt -->
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <!-- Google Analytics (volitelné, můžeš zakomentovat) -->
   <!--
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZ4DDY5K4D"></script>
@@ -37,7 +40,9 @@
   <body>
     <header class="navbar">
       <div class="logo">
-        <img src="img/wolf-logo.png" alt="Night Wolf logo" class="logo-img" />
+        <a href="/">
+          <img src="img/wolf-logo.png" alt="Night Wolf logo" class="logo-img" />
+        </a>
       </div>
       <div class="lang-runes">
         <a href="/index.html" title="Čeština">ᚲ CZ</a>
@@ -109,6 +114,11 @@
           menu.style.display = "flex";
         }
       });
+    </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
     </script>
   </body>
 </html>

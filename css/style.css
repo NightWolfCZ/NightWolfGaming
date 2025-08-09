@@ -140,6 +140,21 @@ body {
 
 .logo-img {
   height: 60px;
+  transition: transform 0.3s ease, filter 0.3 ease;
+  filter: drop-shadow(0 0 6px var(--highlight-glow));
+  animation: pulselogo 2.5s infinite ease-in-out;
+}
+
+@keyframes pulselogo {
+  0% {
+    filter: drop-shadow(0 0 6px var(--highlight-glow));
+  }
+  50% {
+    filter: drop-shadow(0 0 14px var(--moon-silver));
+  }
+  100% {
+    filter: drop-shadow(0 0 6px var(--highlight-glow));
+  }
 }
 
 nav a {
@@ -653,8 +668,6 @@ body::after {
 .social-links a:hover {
   color: #e0f0ff;
 }
-
-
 
 .cta-buttons {
   display: flex;
