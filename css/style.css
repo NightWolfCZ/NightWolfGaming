@@ -629,15 +629,9 @@ body::after {
   margin-bottom: 0.5rem;
 }
 
-.fun-facts {
+.about {
   list-style: none;
   padding: 0;
-}
-
-.fun-facts li {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #2e4f3d; /* tmavší zelená linka */
-  color: #a8ffe3;
 }
 
 .timeline {
