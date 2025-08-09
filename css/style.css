@@ -751,6 +751,14 @@ body::after {
   background: transparent;
 }
 
+.sr-only {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 @media (max-width: 600px) {
   .rubrika-banner {
     width: 100%;
