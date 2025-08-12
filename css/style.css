@@ -75,16 +75,63 @@ html {
 
 /* === BODY === */
 body {
-  font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
-  min-height: 100vh;
-  position: relative;
-  background-image: url("/img/wolf.png");
+  background: url("/img/wolf.png") no-repeat center center fixed;
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: #e0f0ff;
+  font-family: "Montserrat", sans-serif;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 120vw;
+  height: 120vh;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 0, 0, 0.15),
+    transparent 80%
+  );
+  animation: fogMove 60s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+  mix-blend-mode: screen;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(
+    circle at 30% 40%,
+    rgba(255, 0, 0, 0.1),
+    transparent 70%
+  );
+  animation: fogDrift 60s linear infinite;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.5;
+}
+
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-matter.png");
+  opacity: 0.05;
+  z-index: 3;
+  pointer-events: none;
 }
 
 .overlay {
@@ -99,43 +146,160 @@ body {
 
 /* === NAVIGATION === */
 .runove-menu {
+  position: relative;
+  z-index: 10;
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  background-color: #111;
+  gap: 60px;
+  margin-top: 150px;
+  font-size: 28px;
+  color: #ff3c3c;
+  text-shadow: 0 0 15px #ff0000;
+  animation: pulse 8s infinite ease-in-out;
+
+  /* NOVÉ POZADÍ */
+  background-color: rgba(0, 0, 0, 0.6); /* temný průhledný panel */
   padding: 1.5rem 2rem;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  border-image: linear-gradient(to right, #8b0000, #ff3c3c) 1;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); /* krvavý závoj */
+  backdrop-filter: blur(4px); /* jemné rozmazání pozadí */
 }
 
+.runove-menu div {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.runove-menu div:hover {
+  transform: scale(1.2) rotate(-2deg);
+  text-shadow: 0 0 25px #ff0000, 0 0 40px #ff3c3c;
+}
+
+/* BLOK S RUNOU */
 .runa-blok {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-decoration: none;
+  color: var(--text-light);
   transition: transform 0.3s ease;
+  font-size: 1.2rem;
 }
 
-.runa-blok:hover .runa {
-  text-shadow: 0 0 8px rgba(255, 244, 214, 1), 0 0 20px rgba(255, 244, 214, 0.9),
-    0 0 25px rgba(128, 0, 0, 0.9);
+/* HOVER EFEKT PŘI KRHAVÉM MĚSÍCI */
+.bloodmoon .runa-blok:hover .runa {
+  text-shadow: 0 0 15px rgba(255, 99, 71, 1), 0 0 30px rgba(139, 0, 0, 1),
+    0 0 45px rgba(128, 0, 0, 1);
   cursor: pointer;
 }
 
-.runa {
-  font-family: "Segoe UI Symbol", "Arial Unicode MS", serif; /* aby runy dobře vypadaly */
-  font-size: 1.8rem;
-  color: #fff8dc; /* taková bílobéžová, co připomíná měsíční světlo */
-  text-shadow: 0 0 5px rgba(255, 244, 214, 0.8),
-    /* měkký zlatobílý svit */ 0 0 15px rgba(255, 244, 214, 0.6),
-    /* větší rozostřený svit */ 0 0 20px rgba(128, 0, 0, 0.7); /* lehce bordó zabarvený svit jako od tebe */
+/* VZHLED RUNY PŘI KRHAVÉM MĚSÍCI */
+.bloodmoon .runa {
+  font-family: "Segoe UI Symbol", "Arial Unicode MS", serif;
+  font-size: 3.4rem;
+  color: #ffe4e1;
+  text-shadow: 0 0 8px rgba(255, 99, 71, 0.9), 0 0 20px rgba(139, 0, 0, 0.8),
+    0 0 30px rgba(128, 0, 0, 1);
   transition: text-shadow 0.3s ease;
+  animation: bloodPulse 2.5s infinite ease-in-out;
 }
 
+/* POPISEK POD RUNOU */
 .popisek {
-  margin-top: 0.3rem;
-  font-size: 1rem;
-  color: #e0e0e0;
-  letter-spacing: 1px;
+  margin-top: 1.2rem;
+  font-size: 1.1rem;
+  color: var(--moon-silver);
+  letter-spacing: 1.2px;
+}
+
+/* RUDÝ OPAR NA POZADÍ */
+.bloodmoon::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(
+    circle at center,
+    rgba(128, 0, 0, 0.15),
+    transparent 70%
+  );
+  animation: fogMove 30s linear infinite;
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0.6;
+}
+
+/* ANIMACE */
+@keyframes fogMove {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-20px, 10px) scale(1.05);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes fogDrift {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(30px, -20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes bloodPulse {
+  0% {
+    text-shadow: 0 0 5px rgba(255, 99, 71, 0.8), 0 0 15px rgba(139, 0, 0, 0.6),
+      0 0 25px rgba(128, 0, 0, 0.9);
+  }
+  50% {
+    text-shadow: 0 0 25px rgba(139, 0, 0, 1);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(255, 99, 71, 0.8);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .runove-menu {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+    font-size: 22px;
+  }
+
+  .runa {
+    font-size: 3rem;
+  }
+
+  .popisek {
+    font-size: 1rem;
+  }
 }
 
 .logo-img {

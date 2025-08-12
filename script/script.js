@@ -41,3 +41,36 @@ fetch("/novinky/novinky.json")
     })
     .catch(err => console.error(err));
 });
+
+const hour = new Date().getHours();
+  const body = document.body;
+
+  // Časová podmínka: noc = krvavý měsíc
+  let isBloodTime = hour >= 20 || hour < 5;
+
+  // Fáze měsíce přes API
+  fetch("https://api.farmsense.net/v1/moonphases/?d=" + Date.now())
+    .then(response => response.json())
+    .then(data => {
+      const phase = data[0].Phase.toLowerCase();
+
+      // Fáze, které spouští krvavý efekt
+      const bloodPhases = [
+        "new moon",
+        "waning crescent",
+        "third quarter",
+        "waning gibbous"
+      ];
+
+      const isBloodPhase = bloodPhases.some(p => phase.includes(p));
+
+      if (isBloodTime || isBloodPhase) {
+        body.classList.add("bloodmoon");
+      }
+    })
+    .catch(error => {
+      console.warn("Moon phase API failed, fallback to time only.");
+      if (isBloodTime) {
+        body.classList.add("bloodmoon");
+      }
+    });
