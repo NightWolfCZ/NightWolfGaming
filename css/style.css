@@ -1,484 +1,408 @@
-@media (max-width: 768px) {
-  .runove-menu {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .hero h1 {
-    font-size: 2rem;
-  }
-  /* další úpravy... */
-}
-
-@media (max-width: 480px) {
-  .cta-button {
-    padding: 0.6rem 1rem;
-    font-size: 1rem;
-  }
-  /* a třeba menu udělat dropdown nebo hambáč */
-}
-
-/* Skryjeme menu a ukážeme hamburger na mobilu */
-@media (max-width: 768px) {
-  .runove-menu {
-    display: none;
-    flex-direction: column;
-    background-color: var(--bg-dark);
-    position: absolute;
-    top: 60px; /* pod header */
-    right: 0;
-    width: 200px;
-    border-radius: 0 0 0 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-  }
-
-  .menu-toggle {
-    display: block;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: var(--highlight-glow);
-    cursor: pointer;
-  }
-}
-
-/* Ve větším rozlišení menu normálně zobrazené a hamburger skrytý */
-@media (min-width: 769px) {
-  .menu-toggle {
-    display: none;
-  }
-  .runove-menu {
-    display: flex !important;
-  }
-}
-
 /* === RESET === */
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
 html {
   scroll-behavior: smooth;
+}
+html,
+body {
+  height: 100%;
 }
 
 /* === ROOT VARIABLES === */
 :root {
-  --bg-dark: #0f0f1c;
-  --text-light: #e8f0f2;
-  --highlight-glow: #a8ffe3;
-  --forest-green: #2e4f3d;
-  --moon-silver: #cdd4e3;
-  --shadow: rgba(0, 0, 0, 0.7);
+  /* Základ tématu */
+  --bg-dark: #0f0f1e; /* hlavní pozadí */
+  --bg-deep: #242f36; /* noční vrstva/gradienty */
+  --text-light: #f2f8f8; /* hlavní text */
+  --text-dim: #777887; /* sekundární text, ikony */
+
+  /* Panely, linky */
+  --panel: #252636;
+
+  /* Glow paleta (nahrazuje původní tyrkys) */
+  --highlight-glow: #29505d; /* hlavní „světlo“ pro glow efekty */
+  --cyan-glow: rgba(1, 34, 53, 0.55); /* střední glow (přechody, stíny) */
+  --glow-deep: #010f1c; /* nejhlubší tón pro vrstvení glow */
+
+  /* Červená paleta (podle tvé volby) */
+  --red: #d64b4b;
+  --red-hover: #bf3a55;
+  --red-weak: rgba(144, 63, 92, 0.18);
+  --red-shadow: rgba(144, 63, 92, 0.35);
+  --red-glow: rgba(214, 75, 75, 0.5);
+
+  /* Doplňky, pokud je používáš v dalších blocích */
+  --hover-bg: rgba(41, 80, 93, 0.22); /* jemný studený hover (menu apod.) */
+  --moon-silver: #e8eef4; /* světlé nadpisy/kontrastní text */
+  --forest-green: #2e4f3d; /* pokud máš ještě někde staré CTA */
 }
 
-/* === BODY === */
+/* === BODY A POZADÍ === */
 body {
-  margin: 0;
-  padding: 0;
-  background: url("/img/wolf.png") no-repeat center center fixed;
+  background: var(--bg-dark) url("/img/wolf.png") no-repeat center center fixed;
   background-size: cover;
-  font-family: "Montserrat", sans-serif;
-  overflow: hidden;
+  color: var(--text-light);
+  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto,
+    sans-serif;
+  overflow-x: hidden;
   position: relative;
   z-index: 0;
 }
 
+/* Efekty: mlha + měsíční svit (sjednocené) */
 body::before {
   content: "";
   position: fixed;
-  top: -10%;
-  left: -10%;
-  width: 120vw;
-  height: 120vh;
-  background: radial-gradient(
-    circle at center,
-    rgba(255, 0, 0, 0.15),
-    transparent 80%
-  );
-  animation: fogMove 60s ease-in-out infinite;
+  inset: 0;
   pointer-events: none;
-  z-index: 1;
-  opacity: 0.6;
-  mix-blend-mode: screen;
+  z-index: 0;
+  background: radial-gradient(
+      circle at 30% 40%,
+      rgba(255, 244, 214, 0.12),
+      transparent 70%
+    ),
+    radial-gradient(
+      circle at 70% 60%,
+      rgba(255, 244, 214, 0.08),
+      transparent 60%
+    ),
+    linear-gradient(to bottom, rgba(46, 79, 61, 0.12), transparent 70%);
+  filter: blur(70px);
+  animation: mistMove 60s ease-in-out infinite alternate;
 }
-
 body::after {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  top: 50%;
+  left: 50%;
+  width: 650px;
+  height: 650px;
+  transform: translate(-50%, -50%);
   background: radial-gradient(
-    circle at 30% 40%,
-    rgba(255, 0, 0, 0.1),
-    transparent 70%
+    circle,
+    rgba(255, 244, 214, 0.28) 0%,
+    transparent 80%
   );
-  animation: fogDrift 60s linear infinite;
+  filter: blur(100px);
   pointer-events: none;
-  z-index: 2;
-  opacity: 0.5;
+  z-index: 0;
+  animation: moonGlowPulse 18s ease-in-out infinite;
 }
-
-.particles {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("https://www.transparenttextures.com/patterns/dark-matter.png");
-  opacity: 0.05;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.overlay {
-  background-color: rgba(0, 0, 0, 0.5);
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-}
-
-/* === NAVIGATION === */
-.runove-menu {
-  position: relative;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  margin-top: 150px;
-  font-size: 28px;
-  color: #ff3c3c;
-  text-shadow: 0 0 15px #ff0000;
-  animation: pulse 8s infinite ease-in-out;
-
-  /* NOVÉ POZADÍ */
-  background-color: rgba(0, 0, 0, 0.6); /* temný průhledný panel */
-  padding: 1.5rem 2rem;
-  border-radius: 12px;
-  border: 2px solid transparent;
-  border-image: linear-gradient(to right, #8b0000, #ff3c3c) 1;
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); /* krvavý závoj */
-  backdrop-filter: blur(4px); /* jemné rozmazání pozadí */
-}
-
-.runove-menu div {
-  position: relative;
-  cursor: pointer;
-  transition: transform 0.3s ease, text-shadow 0.3s ease;
-}
-
-.runove-menu div:hover {
-  transform: scale(1.2) rotate(-2deg);
-  text-shadow: 0 0 25px #ff0000, 0 0 40px #ff3c3c;
-}
-
-/* BLOK S RUNOU */
-.runa-blok {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: var(--text-light);
-  transition: transform 0.3s ease;
-  font-size: 1.2rem;
-}
-
-/* HOVER EFEKT PŘI KRHAVÉM MĚSÍCI */
-.bloodmoon .runa-blok:hover .runa {
-  text-shadow: 0 0 15px rgba(255, 99, 71, 1), 0 0 30px rgba(139, 0, 0, 1),
-    0 0 45px rgba(128, 0, 0, 1);
-  cursor: pointer;
-}
-
-/* VZHLED RUNY PŘI KRHAVÉM MĚSÍCI */
-.bloodmoon .runa {
-  font-family: "Segoe UI Symbol", "Arial Unicode MS", serif;
-  font-size: 3.4rem;
-  color: #ffe4e1;
-  text-shadow: 0 0 8px rgba(255, 99, 71, 0.9), 0 0 20px rgba(139, 0, 0, 0.8),
-    0 0 30px rgba(128, 0, 0, 1);
-  transition: text-shadow 0.3s ease;
-  animation: bloodPulse 2.5s infinite ease-in-out;
-}
-
-/* POPISEK POD RUNOU */
-.popisek {
-  margin-top: 1.2rem;
-  font-size: 1.1rem;
-  color: var(--moon-silver);
-  letter-spacing: 1.2px;
-}
-
-/* RUDÝ OPAR NA POZADÍ */
-.bloodmoon::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: radial-gradient(
-    circle at center,
-    rgba(128, 0, 0, 0.15),
-    transparent 70%
-  );
-  animation: fogMove 30s linear infinite;
-  pointer-events: none;
-  z-index: 4;
-  opacity: 0.6;
-}
-
-/* ANIMACE */
-@keyframes fogMove {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(-20px, 10px) scale(1.05);
-  }
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-}
-
-@keyframes fogDrift {
+@keyframes mistMove {
   0% {
     transform: translate(0, 0);
   }
-  50% {
-    transform: translate(30px, -20px);
-  }
   100% {
-    transform: translate(0, 0);
+    transform: translate(30px, 25px);
   }
 }
-
-@keyframes pulse {
+@keyframes moonGlowPulse {
   0%,
   100% {
-    opacity: 1;
-    transform: scale(1);
+    opacity: 0.28;
+    transform: translate(-50%, -50%) scale(1);
   }
   50% {
-    opacity: 0.9;
-    transform: scale(1.03);
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(1.06);
   }
 }
 
-@keyframes bloodPulse {
-  0% {
-    text-shadow: 0 0 5px rgba(255, 99, 71, 0.8), 0 0 15px rgba(139, 0, 0, 0.6),
-      0 0 25px rgba(128, 0, 0, 0.9);
-  }
-  50% {
-    text-shadow: 0 0 25px rgba(139, 0, 0, 1);
-  }
-  100% {
-    text-shadow: 0 0 5px rgba(255, 99, 71, 0.8);
-  }
+/* Volitelný šum */
+.particles {
+  position: fixed;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/dark-matter.png");
+  opacity: 0.05;
+  z-index: 1;
+  pointer-events: none;
 }
 
-/* RESPONSIVE */
-@media (max-width: 600px) {
-  .runove-menu {
-    flex-direction: column;
-    gap: 2rem;
-    padding: 1rem;
-    font-size: 22px;
-  }
-
-  .runa {
-    font-size: 3rem;
-  }
-
-  .popisek {
-    font-size: 1rem;
-  }
-}
-
-.logo-img {
-  height: 60px;
-  transition: transform 0.3s ease, filter 0.3 ease;
-  filter: drop-shadow(0 0 6px var(--highlight-glow));
-  animation: pulselogo 2.5s infinite ease-in-out;
-}
-
-@keyframes pulselogo {
-  0% {
-    filter: drop-shadow(0 0 6px var(--highlight-glow));
-  }
-  50% {
-    filter: drop-shadow(0 0 14px var(--moon-silver));
-  }
-  100% {
-    filter: drop-shadow(0 0 6px var(--highlight-glow));
-  }
-}
-
-nav a {
-  color: var(--highlight-glow);
-  text-decoration: none;
-  margin: 0 1rem;
-  font-weight: 600;
-  position: relative;
-}
-
-nav a::after {
-  content: "";
+/* === JAZYKOVÝ SWITCH === */
+.lang-runes {
   position: absolute;
-  bottom: -4px;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  font-weight: 600;
+}
+.lang-runes a {
+  color: var(--moon-silver);
+  text-decoration: none;
+  margin-left: 0.7rem;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: color 0.2s, background 0.2s, border-color 0.2s, text-shadow 0.2s;
+}
+.lang-runes a:hover {
+  color: #fff;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+/* === SIDEBAR MENU === */
+.side-menu {
+  position: fixed;
+  top: 0;
   left: 0;
-  width: 100%;
-  height: 2px;
-  background: rgba(168, 255, 227, 0.5);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
+  width: 260px;
+  height: 100dvh;
+  background: var(--panel);
+  color: var(--text-light);
+  box-shadow: 0 0 32px rgba(40, 40, 70, 0.32);
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+  padding: 32px 0;
+  z-index: 1000;
+  transform: none;
+  transition: transform 0.25s;
+}
+.side-menu .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+  margin: 0 18px 22px 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+.side-menu .logo img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 12px var(--highlight-glow));
+  border-radius: 10px;
+}
+.side-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 18px;
+}
+.side-menu li {
+  margin-bottom: 0.7rem;
+}
+.side-menu a {
+  color: #cfe6f0;
+  text-decoration: none;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.side-menu a:hover,
+.side-menu a:focus {
+  background: var(--red-weak);
+  color: #fff;
+  box-shadow: 0 4px 20px var(--red-glow);
+  outline: none;
+}
+.side-menu a.active {
+  background: var(--red-weak);
+  color: #fff;
+  box-shadow: 0 6px 24px var(--red-glow);
+  border: 1px solid var(--red-shadow);
+}
+.runa {
+  margin-left: auto;
+  font-size: 2rem;
+  color: #ffd7df;
+  text-shadow: 0 0 6px var(--red-glow), 0 0 12px rgba(255, 140, 160, 0.6);
+  animation: bloodPulse 3s ease-in-out infinite;
+}
+@keyframes bloodPulse {
+  0%,
+  100% {
+    text-shadow: 0 0 7px var(--highlight-glow), 0 0 14px var(--red-glow);
+  }
+  50% {
+    text-shadow: 0 0 16px var(--highlight-glow), 0 0 26px var(--red-glow);
+  }
 }
 
-nav a:hover::after {
-  transform: scaleX(1);
+/* === HAMBURGER + OVERLAY === */
+.menu-toggle {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 1.6rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 10px;
+  z-index: 1101;
+  cursor: pointer;
+  display: none; /* Desktop skrytý */
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+}
+.menu-toggle:hover,
+.menu-toggle:focus {
+  background: var(--hover-bg);
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.32);
+  outline: none;
+}
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(40, 40, 70, 0.55);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s;
+}
+.menu-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-/* === HERO SECTION === */
+/* === MAIN + HERO === */
+main {
+  margin-left: 260px;
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
+}
 .hero {
-  background: radial-gradient(
-    circle at center,
-    rgba(46, 79, 61, 0.08),
-    transparent 70%
-  );
-  padding: 6rem 2rem;
-  text-align: center;
-  backdrop-filter: blur(4px);
   position: relative;
   overflow: hidden;
-  z-index: 1;
+  padding: 6rem 2rem;
+  text-align: center;
+  background: rgba(37, 38, 54, 0.12);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  border-radius: 12px;
+  border: 1px solid rgba(37, 38, 54, 0.45);
+  box-shadow: 0 0 24px rgba(1, 15, 28, 0.25),
+    inset 0 0 24px rgba(1, 34, 53, 0.12);
 }
-
+.moonlight-glow {
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 40vmin;
+  height: 40vmin;
+  background: radial-gradient(
+    closest-side,
+    var(--highlight-glow),
+    transparent 70%
+  );
+  filter: blur(14px);
+  opacity: 0.55;
+  pointer-events: none;
+}
 .hero h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
   font-weight: 700;
   color: var(--moon-silver);
-  text-shadow: 0 0 12px rgba(168, 255, 227, 0.2);
+  text-shadow: 0 0 12px rgba(1, 34, 53, 0.35);
 }
-
 .hero p {
   font-size: 1.2rem;
   opacity: 0.85;
 }
 
-/* === BUTTONS === */
+/* Tlačítka */
 .cta-button,
 button[type="submit"] {
-  background-color: var(--forest-green);
+  display: inline-block;
+  background-color: var(--red);
   padding: 0.8rem 1.4rem;
   border-radius: 10px;
   font-weight: 600;
-  color: var(--moon-silver);
-  box-shadow: 0 0 10px rgba(46, 79, 61, 0.3);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(168, 255, 227, 0.3);
+  color: #fff;
+  box-shadow: 0 0 10px var(--red-glow);
+  border: 1px solid var(--red-shadow);
+  text-decoration: none;
+  transition: background-color 0.25s, box-shadow 0.25s, color 0.25s,
+    transform 0.05s;
 }
-
 .cta-button:hover,
-button[type="submit"]:hover {
-  background-color: var(--highlight-glow);
-  color: var(--bg-dark);
-  box-shadow: 0 0 16px rgba(168, 255, 227, 0.4);
+.cta-button:focus-visible,
+button[type="submit"]:hover,
+button[type="submit"]:focus-visible {
+  background-color: var(--red-hover);
+  color: #fff;
+  box-shadow: 0 0 16px var(--red-glow);
+  outline: none;
+}
+.cta-button:active,
+button[type="submit"]:active {
+  transform: translateY(1px);
 }
 
-/* === REVIEWS === */
+/* === REVIEWS/REFERENCE (základ) === */
 .external-reviews,
 .reference.container {
   max-width: 1000px;
   margin: 4rem auto;
   padding: 0 1rem;
 }
-
 .external-reviews h2,
 .reference h2 {
   font-size: 2rem;
   text-align: center;
   margin-bottom: 1rem;
   color: var(--moon-silver);
-  text-shadow: 0 0 12px rgba(168, 255, 227, 0.2);
+  text-shadow: 0 0 12px rgba(1, 34, 53, 0.35);
 }
-
-.external-reviews p,
-.reference p {
-  font-size: 1.2rem;
-  text-align: center;
-  color: rgba(220, 230, 240, 0.75);
-  margin-bottom: 3rem;
-}
-
 .review-snippet {
   background-color: rgba(255, 255, 255, 0.03);
-  border-left: 4px solid var(--forest-green);
+  border-left: 4px solid var(--red-100, var(--red));
   padding: 1.5rem;
   margin-bottom: 2rem;
   border-radius: 10px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.25s, background-color 0.25s;
+  border: 1px solid rgba(37, 38, 54, 0.4);
 }
-
 .review-snippet:hover {
   background-color: rgba(255, 255, 255, 0.06);
   transform: translateY(-4px);
 }
-
 .review-snippet h3 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: rgba(240, 240, 255, 0.9);
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
   text-shadow: 0 0 8px rgba(160, 180, 200, 0.15);
 }
-
 .review-snippet p {
   font-size: 1rem;
   color: rgba(240, 240, 255, 0.8);
-  margin-bottom: 1rem;
 }
 
-/* === FORMULAR === */
+/* === FORM BLOCK (zkráceně) === */
 .kontakt {
   max-width: 800px;
   margin: 4rem auto;
   padding: 2rem;
-  background-color: rgba(160, 180, 200, 0.05);
+  background-color: rgba(37, 38, 54, 0.12);
   border-radius: 12px;
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   text-align: center;
+  border: 1px solid rgba(37, 38, 54, 0.45);
 }
-
-.kontakt h2 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-  color: var(--moon-silver);
-  text-shadow: 0 0 10px rgba(160, 180, 200, 0.2);
-}
-
-.kontakt p {
-  font-size: 1.2rem;
-  color: rgba(240, 240, 255, 0.75);
-  margin-bottom: 2rem;
-}
-
-form[name="kontakt"] {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
+.kontakt input[type="text"],
+.kontakt input[type="email"],
+.kontakt textarea {
+  width: 100%;
   padding: 0.8rem 1rem;
   border-radius: 8px;
   border: none;
@@ -486,16 +410,14 @@ textarea {
   background-color: rgba(255, 255, 255, 0.05);
   color: #fff;
   box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.1);
-  transition: background-color 0.3s ease;
+  transition: background-color 0.25s;
 }
-
-input::placeholder,
-textarea::placeholder {
+.kontakt input::placeholder,
+.kontakt textarea::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
-
-input:focus,
-textarea:focus {
+.kontakt input:focus,
+.kontakt textarea:focus {
   outline: none;
   background-color: rgba(255, 255, 255, 0.08);
 }
@@ -504,436 +426,76 @@ textarea:focus {
 .footer {
   text-align: center;
   padding: 2rem 0;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   background-color: rgba(0, 0, 0, 0.9);
-  box-shadow: 0 -2px 10px rgba(46, 79, 61, 0.3);
-  color: rgba(240, 240, 255, 0.6);
+  box-shadow: 0 -2px 10px rgba(1, 15, 28, 0.3);
+  color: rgba(240, 240, 255, 0.7);
 }
 
-/* Noční mlha - jemný opar přes celou obrazovku */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-
-  background: radial-gradient(
-      circle at 30% 40%,
-      rgba(255, 244, 214, 0.15),
-      transparent 70%
-    ),
-    radial-gradient(
-      circle at 70% 60%,
-      rgba(255, 244, 214, 0.1),
-      transparent 60%
-    ),
-    linear-gradient(to bottom, rgba(46, 79, 61, 0.15), transparent 70%);
-
-  filter: blur(80px);
-  animation: mistMove 60s ease-in-out infinite alternate;
-}
-
-/* Měsíční svit - jemný zářivý kruh */
-body::after {
-  content: "";
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(
-    circle,
-    rgba(255, 244, 214, 0.35) 0%,
-    transparent 80%
-  );
-  filter: blur(100px);
-  pointer-events: none;
-  z-index: 0;
-  pointer-events: none;
-  animation: moonGlowPulse 12s ease-in-out infinite;
-}
-
-/* Animace pohybu mlhy */
-@keyframes mistMove {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(30px, 20px);
-  }
-}
-
-/* Animace pulzujícího měsíčního svitu */
-@keyframes moonGlowPulse {
-  0%,
-  100% {
-    opacity: 0.2;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    opacity: 0.5;
-    transform: translate(-50%, -50%) scale(1.07);
-  }
-}
-
-/* === VIZUÁLNÍ EFEKTY: MĚSÍC + MLHA === */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(180, 200, 255, 0.08),
-    transparent 80%
-  );
-  filter: blur(60px);
-  animation: mistMove 60s ease-in-out infinite alternate;
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 700px;
-  height: 700px;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(
-    circle at center,
-    rgba(255, 244, 214, 0.15),
-    transparent 80%
-  );
-  opacity: 0.5;
-  filter: blur(100px);
-  pointer-events: none;
-  z-index: 0;
-  animation: moonGlowPulse 20s ease-in-out infinite;
-}
-
-/* === ANIMACE PRO EFEKTY === */
-@keyframes mistMove {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(30px, 30px);
-  }
-}
-
-@keyframes moonGlowPulse {
-  0%,
-  100% {
-    opacity: 0.3;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: translate(-50%, -50%) scale(1.05);
-  }
-}
-
-/* Switch */
-.lang-runes {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  z-index: 10;
-}
-
-.lang-runes a {
-  color: var(--moon-silver, #ccc);
-  text-decoration: none;
-  margin-left: 0.7rem;
-  font-size: 0.9rem;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.03);
-  padding: 0.3rem 0.6rem;
-  border-radius: 0.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.lang-runes a:hover {
-  color: #fff;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-/* Podmenu pro Blog */
+/* === DROPDOWN === */
 .has-dropdown {
   position: relative;
   display: inline-block;
 }
-
 .has-dropdown > a {
   cursor: pointer;
 }
-
 .dropdown-content {
   display: none;
   position: absolute;
-  background: rgba(15, 15, 28, 0.98);
-  min-width: 180px;
-  border-radius: 10px;
-  box-shadow: 0 4px 24px rgba(168, 255, 227, 0.15);
-  z-index: 200;
   top: 110%;
   left: 50%;
   transform: translateX(-50%);
+  min-width: 180px;
+  background: rgba(15, 15, 28, 0.98);
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(1, 34, 53, 0.25);
   padding: 0.8rem 0;
+  z-index: 1200;
 }
-
 .dropdown-content a {
-  color: var(--highlight-glow);
-  padding: 0.7rem 1.5rem;
-  text-decoration: none;
+  color: var(--text-light);
+  padding: 0.7rem 1.2rem;
   display: block;
+  text-decoration: none;
   font-weight: 600;
-  font-size: 1.08rem;
+  font-size: 1.05rem;
   border-radius: 6px;
   transition: background 0.15s, color 0.15s;
 }
-
 .dropdown-content a:hover {
-  background: var(--highlight-glow);
-  color: var(--bg-dark);
+  background: var(--red-weak);
+  color: #fff;
 }
-
 .has-dropdown:hover .dropdown-content,
 .has-dropdown:focus-within .dropdown-content {
   display: block;
 }
 
-/* Pro mobilní menu */
+/* === RESPONSIVITA === */
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: block;
+  }
+  .side-menu {
+    transform: translateX(-100%);
+  }
+  .side-menu.open {
+    transform: translateX(0);
+  }
+  main {
+    margin-left: 0;
+    padding: 1.5rem;
+  }
+}
 @media (max-width: 768px) {
-  .runa-blok.has-dropdown {
-    width: 100%;
-  }
-  .has-dropdown .dropdown-content {
-    position: static;
-    transform: none;
-    min-width: unset;
-    box-shadow: none;
-    background: none;
-    padding: 0;
-  }
-  .has-dropdown .dropdown-content a {
-    padding-left: 2.5rem;
-    font-size: 1rem;
-    background: none;
-    color: var(--highlight-glow);
+  .hero h1 {
+    font-size: 2.2rem;
   }
 }
-
-.article-content {
-  padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-.article-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-/* About section */
-.about-extra {
-  max-width: 800px;
-  margin: 4rem auto;
-  padding: 2rem;
-  background-color: rgba(160, 180, 200, 0.05);
-  border-radius: 12px;
-  backdrop-filter: blur(4px);
-  text-align: center;
-  color: #a8ffe3;
-}
-
-.about-wrapper {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-  border-radius: 12px;
-  text-align: center;
-  color: #a8ffe3;
-}
-
-.about-extra h2 {
-  margin-top: 1.5rem;
-  color: var(--moon-silver); /* měsíční stříbrná */
-}
-
-.features {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.feature {
-  flex: 1 1 200px;
-  background: rgba(160, 180, 200, 0.05);
-  padding: 1rem;
-  border-radius: 8px;
-  text-align: center;
-  color: #e0f0ff; /* světle modrá */
-}
-
-.feature i {
-  font-size: 2rem;
-  color: #a8ffe3; /* tyrkysová ikony */
-  margin-bottom: 0.5rem;
-}
-
-.about {
-  list-style: none;
-  padding: 0;
-}
-
-.timeline {
-  list-style: none;
-  padding: 0;
-  border-left: 2px solid #2e4f3d; /* tmavší zelená linka */
-}
-
-.timeline li {
-  padding-left: 1rem;
-  position: relative;
-  margin-bottom: 1rem;
-  color: #e0f0ff;
-}
-
-.timeline li span {
-  font-weight: bold;
-  color: #a8ffe3;
-}
-
-.social-links a {
-  font-size: 1.5rem;
-  margin-right: 1rem;
-  color: #a8ffe3;
-  transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-  color: #e0f0ff;
-}
-
-.cta-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-}
-
-.cta-button,
-.cta-button.ghost {
-  background-color: var(--forest-green);
-  padding: 0.8rem 1.4rem;
-  border-radius: 10px;
-  font-weight: 600;
-  color: var(--moon-silver);
-  box-shadow: 0 0 10px rgba(46, 79, 61, 0.3);
-  border: 1px solid rgba(168, 255, 227, 0.3);
-  text-decoration: none;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.cta-button:hover,
-.cta-button.ghost:hover {
-  background-color: var(--highlight-glow);
-  color: var(--bg-dark);
-  box-shadow: 0 0 16px rgba(168, 255, 227, 0.4);
-}
-
-.cta-button.ghost {
-  background: transparent;
-  color: var(--moon-silver);
-  border: 2px solid var(--highlight-glow);
-}
-
-.about-image {
-  margin-top: 3rem;
-}
-
-.about-image img {
-  max-width: 300px;
-  width: 100%;
-  height: auto;
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-}
-
-/* Optional fade-in on scroll (if you're using JS observer) */
-.about-image img.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.about-image img.visible {
-  opacity: 1;
-  transform: none;
-}
-
-@media (max-width: 768px) {
-  .about-section h1 {
-    font-size: 2rem;
-  }
-  .cta-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-.rubrika-banner-container {
-  position: relative;
-  width: 100%;
-  background-color: var(--forrest-green);
-  border-radius: 6px;
-  box-shadow: 0 6px 20px var(--shadow);
-  overflow: hidden;
-  margin-bottom: 2rem;
-}
-
-.rubrika-banner {
-  display: block;
-  margin: 2rem auto 1.5rem auto;
-  max-width: 90vw;
-  width: 550px;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(168, 255, 227, 0.12), 0 0 24px #0f0f1c;
-  background: transparent;
-}
-
-.sr-only {
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
 @media (max-width: 600px) {
-  .rubrika-banner {
-    width: 100%;
-    max-width: 96vw;
-    border-radius: 10px;
-  }
-  #novinky {
-    padding: 1rem 0;
-  }
-
-  #recenze {
-    padding: 1rem 0;
+  .cta-button {
+    padding: 0.65rem 1rem;
+    font-size: 1rem;
   }
 }

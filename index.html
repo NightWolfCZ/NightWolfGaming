@@ -1,116 +1,146 @@
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NightWolf Gaming – Herní svět na vlastní drápy</title>
-  <meta name="description" content="Oficiální web NightWolf Gaming – herního projektu věnovaného recenzím, hrám a vlastní tvorbě." />
-  <meta name="author" content="NightWolf">
-  <meta property="og:title" content="NightWolf Gaming – Herní svět na vlastní drápy">
-  <meta property="og:description" content="Oficiální web NightWolf Gaming – recenze, hry a vlastní tvorba.">
-  <meta property="og:image" content="https://nightwolfgaming.netlify.app/img/share-image.jpg">
-  <meta property="og:url" content="https://nightwolfgaming.netlify.app">
-
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Stylování -->
-  <link rel="stylesheet" href="./css/style.css" />
-
-  <!-- Favicony -->
-  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png" />
-
-  <!-- AOS efekt -->
-   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-  <!-- Google Analytics (volitelné, můžeš zakomentovat) -->
-  <!--
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZ4DDY5K4D"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-    gtag("config", "G-RZ4DDY5K4D");
-  </script>
-  -->
-</head>
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NightWolf Gaming – Herní svět na vlastní drápy</title>
+    <meta
+      name="description"
+      content="Oficiální web NightWolf Gaming – herního projektu věnovaného recenzím, hrám a vlastní tvorbě."
+    />
+    <meta name="author" content="NightWolf" />
+    <meta name="theme-color" content="#0f0f1c" />
+    <meta
+      property="og:title"
+      content="NightWolf Gaming – Herní svět na vlastní drápy"
+    />
+    <meta
+      property="og:description"
+      content="Oficiální web NightWolf Gaming – recenze, hry a vlastní tvorba."
+    />
+    <meta property="og:image" content="/img/share-image.jpg" />
+    <meta property="og:url" content="https://nightwolfgaming.netlify.app" />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Favicony -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/img/favicon-16x16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/img/apple-touch-icon.png"
+    />
+    <!-- Externí CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
   <body>
-    <header class="navbar">
+    <!-- Přepínač jazyka -->
+    <nav class="lang-runes" aria-label="Jazyk">
+      <a href="/index.html" lang="cs" title="Čeština">ᚲ CZ</a>
+      <a href="/en.html" lang="en" title="English">ᛖ EN</a>
+    </nav>
+    <!-- Postranní menu -->
+    <nav class="side-menu" aria-label="Hlavní navigace">
       <div class="logo">
-        <a href="/">
-          <img src="/img/wolf-logo.png" alt="Night Wolf logo" class="logo-img" />
-        </a>
+        <img src="/img/wolf-logo.png" alt="NightWolf Gaming Logo" />
       </div>
-      <div class="lang-runes">
-        <a href="/index.html" title="Čeština">ᚲ CZ</a>
-        <a href="/en.html" title="English">ᛖ EN</a>
-      </div>
-
-      <nav class="runove-menu">
-        <a class="runa-blok" href="/index.html">
-          <span class="runa">ᚺ</span>
-          <span class="popisek">Úvod</span>
-        </a>
-          <a class="runa-blok" href="/novinky/novinky.html">
-              <span class="runa">ᚾ</span>
-              <!-- např. runa N jako Novinky -->
-              <span class="popisek">Novinky</span>
-            </a>
-            <a class="runa-blok" href="/recenze/recenze.html">
-              <span class="runa">ᚱ</span>
-              <!-- runa R jako Recenze -->
-              <span class="popisek">Recenze</span>
-            </a>
-        <a class="runa-blok" href="/reference/index.html">
-          <span class="runa">ᚨ</span>
-          <span class="popisek">Reference</span>
-        </a>
-        <a class="runa-blok" href="/about/index.html">
-          <span class="runa">ᛉ</span> <!-- runa pro "O mně" -->
-          <span class="popisek">O mně</span>
-        </a>
-        <a class="runa-blok" href="/kontakt/index.html">
-          <span class="runa">ᚠ</span>
-          <span class="popisek">Kontakt</span>
-        </a>
-      </nav>
-      <button class="menu-toggle" aria-label="Toggle menu">
-        &#9776;
-        <!-- tenhle znak je tři čárky aka hamburger -->
-      </button>
-    </header>
-
-    <main>
+      <ul id="main-menu">
+        <li>
+          <a href="/index.html"
+            >Úvod <span class="runa" aria-hidden="true">ᚺ</span></a
+          >
+        </li>
+        <li>
+          <a href="/novinky/novinky.html"
+            >Novinky <span class="runa" aria-hidden="true">ᚾ</span></a
+          >
+        </li>
+        <li>
+          <a href="/recenze/recenze.html"
+            >Recenze <span class="runa" aria-hidden="true">ᚱ</span></a
+          >
+        </li>
+        <li>
+          <a href="/reference/index.html"
+            >Reference <span class="runa" aria-hidden="true">ᚨ</span></a
+          >
+        </li>
+        <li>
+          <a href="/about/index.html"
+            >O mně <span class="runa" aria-hidden="true">ᛉ</span></a
+          >
+        </li>
+        <li>
+          <a href="/kontakt/index.html"
+            >Kontakt <span class="runa" aria-hidden="true">ᚠ</span></a
+          >
+        </li>
+      </ul>
+    </nav>
+    <!-- Toggle + overlay (mobil) -->
+    <button
+      class="menu-toggle"
+      aria-label="Zobrazit menu"
+      aria-controls="main-menu"
+      aria-expanded="false"
+    >
+      &#9776;
+    </button>
+    <div class="menu-overlay" tabindex="-1" aria-hidden="true"></div>
+    <!-- Hlavní obsah -->
+    <main id="obsah">
       <section class="hero">
-        <div class="moonlight-glow"></div>
+        <div class="moonlight-glow" aria-hidden="true"></div>
         <h1>Vítej ve smečce.</h1>
-        <a href="/blog" class="cta-button">Vstup do světa recenzí</a>
+        <p>
+          Novinky, recenze a projekty z herní scény. Temný styl, čistý obsah.
+        </p>
+        <a href="/novinky/novinky.html" class="cta-button"
+          >Vstup do světa recenzí</a
+        >
       </section>
     </main>
-
-    <footer class="footer">
-      <p>&copy; 2025 Night Wolf Gaming</p>
-    </footer>
-
+    <footer class="footer"><p>&copy; 2025 Night Wolf Gaming</p></footer>
+    <!-- Jednoduchý JS pro mobilní menu -->
     <script>
       const toggleBtn = document.querySelector(".menu-toggle");
-      const menu = document.querySelector(".runove-menu");
-
+      const sideMenu = document.querySelector(".side-menu");
+      const overlay = document.querySelector(".menu-overlay");
+      function closeMenu() {
+        sideMenu.classList.remove("open");
+        overlay.classList.remove("show");
+        toggleBtn.setAttribute("aria-expanded", "false");
+        overlay.setAttribute("aria-hidden", "true");
+      }
+      function openMenu() {
+        sideMenu.classList.add("open");
+        overlay.classList.add("show");
+        toggleBtn.setAttribute("aria-expanded", "true");
+        overlay.setAttribute("aria-hidden", "false");
+      }
       toggleBtn.addEventListener("click", () => {
-        if (menu.style.display === "flex") {
-          menu.style.display = "none";
-        } else {
-          menu.style.display = "flex";
-        }
+        const expanded = toggleBtn.getAttribute("aria-expanded") === "true";
+        expanded ? closeMenu() : openMenu();
       });
-    </script>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
+      overlay.addEventListener("click", closeMenu);
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
     </script>
   </body>
 </html>
